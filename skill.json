@@ -1,0 +1,10 @@
+{
+  "name": "openclaw-genpark-bio-builder",
+  "version": "1.0.0",
+  "description": "OpenClaw GenPark Bio Builder - Executive persona vector synthesis, career trajectory velocity scoring, and cryptographic credential Merkle leaf generation with zero dependencies.",
+  "tools": [
+    "synthesize_executive_persona_vector",
+    "calculate_career_trajectory_velocity",
+    "generate_credential_merkle_leaf_hash"
+  ]
+}
