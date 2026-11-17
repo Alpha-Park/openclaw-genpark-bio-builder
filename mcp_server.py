@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import OpenClawGenParkBioBuilder
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("openclaw-genpark-bio-builder")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("openclaw-genpark-bio-builder")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('openclaw-genpark-bio-builder')
 
 bio_builder = OpenClawGenParkBioBuilder()
 
@@ -59,8 +50,7 @@ def generate_credential_merkle_leaf_hash(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Bio Builder:")
-    print(generate_credential_merkle_leaf_hash("usr_991", "EXECUTIVE_MBA", "STANFORD_GSB", 1729000000))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
